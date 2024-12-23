@@ -62,7 +62,7 @@ export function useSpring(
         stopAnimation()
 
         activeSpringAnimation.current = animateValue({
-            keyframes: [value.get(), latestValue.current],
+            keyframes: [value.get(), latestValue.current].filter(v => v !== -Infinity),
             velocity: value.getVelocity(),
             type: "spring",
             restDelta: 0.001,
